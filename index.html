@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>클린보스 | 깨끗함을 약속합니다</title>
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2b60a0;
+      --secondary: #66b2ff;
+      --bg: #f9f9f9;
+      --text: #333;
+      --header-h: 60px;
+      --shadow: rgba(0,0,0,0.1);
+      --section-gap: 4rem;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Do Hyeon',sans-serif; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--text); padding-top:var(--header-h); }
+
+    header {
+      position:fixed; top:0; left:0; right:0; height:var(--header-h);
+      background:var(--primary); color:#fff;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 1rem; box-shadow:0 2px 8px var(--shadow); z-index:100;
+      overflow-x:auto;
+    }
+    .logo { font-size:1.4rem; font-weight:bold; white-space: nowrap; }
+    nav { display:flex; gap:1rem; flex-wrap:nowrap; overflow-x:auto; }
+    nav a { color:#fff; text-decoration:none; padding:0.5rem; position:relative; white-space:nowrap; }
+    nav a::after { content:''; position:absolute; left:0; bottom:0; width:100%; height:2px; background:var(--secondary); transform:scaleX(0); transform-origin:left; transition:transform .3s; }
+    nav a:hover::after { transform:scaleX(1); }
+
+    /* Hero */
+    .hero { position:relative; width:100%; overflow:hidden; margin-bottom:var(--section-gap); }
+    .hero img { width:100%; height:auto; display:block; }
+
+    /* Compare Sliders */
+    .compare-sliders {
+      display:flex; justify-content:center; gap:2rem;
+      max-width:900px; margin:0 auto var(--section-gap); overflow-x:auto;
+    }
+    .slider { flex:0 0 45%; position:relative; overflow:hidden; min-width:300px; }
+    .slider h2 { text-align:center; margin-bottom:1rem; color:var(--primary); }
+    .slides { display:flex; transition:transform .5s ease; }
+    .slide { flex:0 0 100%; }
+    .slide img { width:100%; height:auto; object-fit:cover; border-radius:1rem; box-shadow:0 4px 12px var(--shadow); }
+    .slider .arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:#fff; border:none; width:2rem; height:2rem; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+    .slider .prev { left:0.5rem; }
+    .slider .next { right:0.5rem; }
+    .slider .dots { position:absolute; bottom:1rem; left:50%; transform:translateX(-50%); display:flex; gap:0.5rem; }
+    .slider .dot { width:0.75rem; height:0.75rem; border-radius:50%; background:rgba(255,255,255,0.6); cursor:pointer; }
+    .slider .dot.active { background:var(--secondary); }
+
+    /* Sections */
+    section:not(.hero):not(.compare-sliders) { padding:var(--section-gap) 1.5rem; }
+    section h2 { margin-top:0; margin-bottom:1rem; text-align:center; color:var(--primary); }
+    .about { max-width:800px; margin:0 auto; text-align:center; line-height:1.6; }
+    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; max-width:1000px; margin:0 auto; }
+    .service-card { background:#fff; padding:1.5rem; border-radius:1rem; box-shadow:0 4px 12px var(--shadow); text-align:center; transition:transform .3s; }
+    .service-card:hover { transform:translateY(-5px); }
+    .service-card h3 { margin-bottom:0.5rem; color:var(--primary); }
+    .service-card p { font-size:0.95rem; }
+
+    /* Box Container */
+    .box-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px var(--shadow);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Contact */
+    .contact-info { max-width:600px; margin:0 auto; text-align:center; }
+    .contact-info a { display:inline-block; margin:0.5rem 1rem; color:var(--primary); text-decoration:none; font-weight:bold; }
+    .contact-info a:hover { color:var(--secondary); }
+
+    footer { text-align:center; padding:2rem 1rem; background:#222; color:#ccc; }
+    #scrollTop { display:none; }
+
+    @media(max-width:768px) {
+      header { padding:0 0.5rem; }
+      .logo { font-size:1.2rem; }
+      nav a { padding:0.25rem; font-size:0.9rem; }
+      .compare-sliders { flex-direction:column; gap:var(--section-gap); }
+      .slider { flex:0 0 100%; min-width:100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">클린보스</div>
+    <nav>
+      <a href="#home">홈</a>
+      <a href="#compare">전&후</a>
+      <a href="#about">소개</a>
+      <a href="#services">서비스</a>
+      <a href="#contact">문의하기</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <img src="hero.jpg" alt="클린보스 히어로 이미지" />
+  </section>
+
+  <div class="compare-sliders" id="compare">
+    <div class="slider" id="before">
+      <h2>청소 전</h2>
+      <button class="arrow prev">❮</button>
+      <div class="slides">
+        <div class="slide"><img src="before1.jpg" alt="청소 전 1" /></div>
+        <div class="slide"><img src="before2.jpg" alt="청소 전 2" /></div>
+        <div class="slide"><img src="before3.jpg" alt="청소 전 3" /></div>
+      </div>
+      <button class="arrow next">❯</button>
+      <div class="dots"></div>
+    </div>
+    <div class="slider" id="after">
+      <h2>청소 후</h2>
+      <button class="arrow prev">❮</button>
+      <div class="slides">
+        <div class="slide"><img src="after1.jpg" alt="청소 후 1" /></div>
+        <div class="slide"><img src="after2.jpg" alt="청소 후 2" /></div>
+        <div class="slide"><img src="after3.jpg" alt="청소 후 3" /></div>
+      </div>
+      <button class="arrow next">❯</button>
+      <div class="dots"></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>업장 소개</h2>
+    <div class="box-container">
+      <p>클린보스는 업계 최고 수준의 전문 인력이 직접 현장을 방문하여 고객님의 공간을 안전하고 완벽하게 관리합니다. 피톤치드 살균, 고온 스팀 소독, 첨단 유리막 코팅 기술을 결합하여 오염물질을 철저히 제거하고 장기간 깨끗한 환경을 유지합니다.</p>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2>주요 서비스</h2>
+    <div class="box-container">
+      <h3>입주청소</h3>
+      <p>새로운 시작을 준비하는 고객님을 위해 세심하고 철저한 청소 서비스를 제공합니다.</p>
+    </div>
+    <div class="service-card"><h3>상가청소</h3><p>영업 전후 깔끔한 환경으로 비즈니스 경쟁력을 높여드립니다.</p></div>
+    <div class="service-card"><h3>원룸·투룸 청소</h3><p>소형 주거 공간 전문 청소</p></div>
+    <div class="service-card"><h3>피톤치드 살균</h3><p>자연 성분 살균으로 안심</p></div>
+    <div class="service-card"><h3>고온스팀 소독</h3><p>강력한 스팀으로 바이러스 제거</p></div>
+    <div class="service-card"><h3>유리막 코팅</h3><p>오래 지속되는 보호막</p></div>
+  </section>
+
+  <section id="contact">
+    <h2>문의하기</h2>
+    <div class="contact-info">
+      <a href="tel:050713238570">0507-1323-8570</a>
+      <a href="https://open.kakao.com/o/s54nc7yh" target="_blank">카카오톡 상담</a>
+      <a href="https://m.blog.naver.com/PostList.naver?blogId=gkdhaksl2005&tab=1" target="_blank">블로그 바로가기</a>
+      <a href="https://naver.me/5sGDvzcv" target="_blank">네이버플레이스</a>
+    </div>
+  </section>
+
+  <footer>© 2025 클린보스. All rights reserved.</footer>
+
+  <script>
+    function initSlider(id){ 
+      const s=document.getElementById(id), slides=s.querySelector('.slides');
+      const dots=s.querySelector('.dots'), count=slides.children.length; let idx=0;
+      for(let i=0;i<count;i++){
+        const d=document.createElement('div'); d.classList.add('dot');
+        if(i===0) d.classList.add('active');
+        d.addEventListener('click',()=>{ idx=i; update(); });
+        dots.appendChild(d);
+      }
+      const update=()=>{ 
+        slides.style.transform = `translateX(-${idx*100}%)`; 
+        dots.querySelectorAll('.dot').forEach((d,i)=> d.classList.toggle('active', i===idx));
+      };
+      s.querySelector('.prev').onclick = ()=>{ idx=(idx-1+count)%count; update(); };
+      s.querySelector('.next').onclick = ()=>{ idx=(idx+1)%count; update(); };
+      setInterval(()=>{ idx=(idx+1)%count; update(); }, 3000);
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      initSlider('before');
+      initSlider('after');
+    });
+  </script>
+</body>
+</html>
